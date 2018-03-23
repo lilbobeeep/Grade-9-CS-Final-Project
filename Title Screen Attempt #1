@@ -1,0 +1,43 @@
+#include <iostream>
+#include <windows.h>
+#include <string>
+using namespace std;
+
+int main()
+{
+    string davis = "Davis";
+    string oscar = "Oscar";
+    char pressStart;
+
+
+      cout <<  " ___________________________________________________________________\n"
+           <<  "|                                                                   |\n"
+           <<  "|                                                                   |\n"
+           <<  "|            Davis and Oscar's Mega Cool Snake Game                 |\n"
+           <<  "|                                                                   |\n"
+           <<  "|                                                                   |\n"
+           <<  "|                                                                   |\n"
+           <<  "|                                                                   |\n"
+           <<  "|               _____   ______     ______                           |\n"
+           <<  "|              |       |      |   |      |   |                      |\n"
+           <<  "|              |       |      |   |      |   |                      |\n"
+           <<  "|              |       |      |   |      |   |                      |\n"
+           <<  "|              |_____  |______|   |______|   |_____                 |\n"
+           <<  "|                                                                   |\n"
+           <<  "|                                                                   |\n"
+           <<  "|                        Press A to Start                           |\n"
+           <<  "|                                                                   |\n"
+           <<  "|                                                                   |\n"
+           <<  "|                                                                   |\n"
+           <<  "|                                                                   |\n"
+           <<  "|                                                                   |\n"
+           <<  "|___________________________________________________________________|\n";
+           cin >> pressStart;
+
+    while (pressStart == 'A' || pressStart == 'a' )
+    {
+      cout << "Yeah you did It! You pressed A";
+    }
+
+    return 0;
+}
