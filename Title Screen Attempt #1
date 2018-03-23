@@ -32,9 +32,9 @@ int main()
            <<  "|                                                                   |\n"
            <<  "|                                                                   |\n"
            <<  "|___________________________________________________________________|\n";
-           getline(cin, pressStart);
+           cin.get(pressStart);
 
-      cout << "Yeah you did It! You pressed A";
+      cout << "Yeah you did It!" << endl;
 
     return 0;
 }
