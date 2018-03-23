@@ -34,10 +34,7 @@ int main()
            <<  "|___________________________________________________________________|\n";
            getline(cin, pressStart);
 
-    while (pressStart == 'A' || pressStart == 'a' )
-    {
       cout << "Yeah you did It! You pressed A";
-    }
 
     return 0;
 }
