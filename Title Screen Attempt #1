@@ -25,14 +25,14 @@ int main()
            <<  "|              |_____  |______|   |______|   |_____                 |\n"
            <<  "|                                                                   |\n"
            <<  "|                                                                   |\n"
-           <<  "|                        Press A to Start                           |\n"
+           <<  "|                   Press Any Button to Start                       |\n"
            <<  "|                                                                   |\n"
            <<  "|                                                                   |\n"
            <<  "|                                                                   |\n"
            <<  "|                                                                   |\n"
            <<  "|                                                                   |\n"
            <<  "|___________________________________________________________________|\n";
-           cin >> pressStart;
+           getline(cin, pressStart);
 
     while (pressStart == 'A' || pressStart == 'a' )
     {
