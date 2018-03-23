@@ -3,13 +3,45 @@
 #include <string>
 using namespace std;
 
+void titleScreen(char);
+int chooseDif(int&)
 int main()
 {
     string davis = "Davis";
     string oscar = "Oscar";
     char pressStart;
+    int difficutly
+    titleScreen(pressStart);
+    chooseDif(difficulty);
+    
 
 
+
+    return 0;
+}
+
+int chooseDif(int &difficulty)
+{
+     char diff; 
+      cout <<  "                                                                      \n"                                                                      
+           <<  "                            Which difficulty?                         \n"
+           <<  "                                                                      \n"
+           <<  "                                                                      \n"
+           <<  "                                A: Easy                               \n"                     
+           <<  "                                                                      \n"
+           <<  "                                B: Medium                             \n"
+           <<  "                                                                      \n"
+           <<  "                                C: Hard                               \n"
+           <<  "                                                                      \n"
+           <<  "                                "; cin >> diff;
+           
+           if(diff = 'A' || diff = 'a')
+           difficulty = 1;
+           if
+                                                                                      
+                                   
+           void titleScreen(char pressStart)
+{
       cout <<  " ___________________________________________________________________\n"
            <<  "|                                                                   |\n"
            <<  "|                                                                   |\n"
@@ -35,6 +67,5 @@ int main()
            cin.get(pressStart);
 
       cout << "Yeah you did It!" << endl;
-
-    return 0;
+      
 }
