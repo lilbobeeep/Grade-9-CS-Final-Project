@@ -12,7 +12,7 @@ int main()
     char pressStart;
     int difficutly
     titleScreen(pressStart);
-    chooseDif(difficulty);
+    difficulty = chooseDif(difficulty);
     
 
 
@@ -36,8 +36,10 @@ int chooseDif(int &difficulty)
            <<  "                                "; cin.get(diff);
            while(diff!= 'A'&& diff!= 'a'&& diff!='B' &&diff!='b'&&diff!='C'&&diff!='c')
            {
-                cout << "That is not a valid difficulty. Please try again." << endl;
-                cin >> diff
+                cout << "\nThat is not a valid difficulty. Please try again." << endl;
+                cin >> diff;
+                
+           }
            
            if(diff == 'A' || diff == 'a')
            difficulty = 1;
@@ -45,7 +47,8 @@ int chooseDif(int &difficulty)
            difficulty = 2;
            if(diff == 'C' || diff == 'c')
            difficulty = 3;
-                                                                                      
+           return difficulty;
+}
                                    
            void titleScreen(char pressStart)
 {
