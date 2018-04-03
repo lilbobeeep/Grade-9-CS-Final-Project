@@ -6,6 +6,7 @@ using namespace std;
 void titleScreen(char);
 int chooseDif(int&)
 int main()
+void setDisplay()
 {
     string davis = "Davis";
     string oscar = "Oscar";
@@ -13,6 +14,7 @@ int main()
     int difficutly
     titleScreen(pressStart);
     difficulty = chooseDif(difficulty);
+    setDisplay();
     
 
 
@@ -20,6 +22,27 @@ int main()
     return 0;
 }
 
+
+void setDisplay();
+{
+    char display[] = {_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,
+                     |,                                                                      |,
+                     |,                                                                      |,
+                     |,                                                                      |,
+                     |,                                                                      |,
+                     |,                                                                      |,
+                     |,                                                                      |,
+                     |,                                                                      |,
+                     |,                                                                      |,
+                     |,                                                                      |,
+                     |,                                                                      |,
+                     |,                                                                      |,
+                     |,                                                                      |,
+                     |,                                                                      |,
+                     |,                                                                      |,
+                     |,                                                                      |,
+                     |,                                                                      |,
+                      _,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,
 int chooseDif(int &difficulty)
 {
      char diff; 
