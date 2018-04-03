@@ -6,15 +6,16 @@ using namespace std;
 void titleScreen(char);
 int chooseDif(int&)
 int main()
-void setDisplay()
+char setDisplay()
 {
     string davis = "Davis";
     string oscar = "Oscar";
     char pressStart;
     int difficutly
+    char border[][];
     titleScreen(pressStart);
     difficulty = chooseDif(difficulty);
-    setDisplay();
+    char border = setDisplay();
     
 
 
@@ -23,7 +24,7 @@ void setDisplay()
 }
 
 
-void setDisplay();
+char setDisplay();
 {
     char display[][] = {"________________________________________________________________"
                        "|                                                                |"
@@ -46,6 +47,8 @@ void setDisplay();
                        "|                                                                |"
                        "|                                                                |"
                        "|________________________________________________________________|"};
+                     return display[][];
+                     }
                        
                     
 int chooseDif(int &difficulty)
