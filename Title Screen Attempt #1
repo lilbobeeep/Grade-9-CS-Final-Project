@@ -24,6 +24,10 @@ using namespace std;
                        "|                                                                |",
                        "|                                                                |",
                        "|________________________________________________________________|"};
+struct Snakeblock{
+   int x, y;
+   };
+                       
                        
 void titleScreen(char);
 int chooseDif(int&)
@@ -32,7 +36,7 @@ int main()
 {
    system("Color 0d");
     bool gameIsRunning = true;
-    gameSpeed = difficulty* 40
+    gameSpeed = 120/difficulty
     string davis = "Davis";
     string oscar = "Oscar";
     char pressStart;
