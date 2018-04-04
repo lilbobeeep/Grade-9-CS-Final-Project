@@ -32,26 +32,38 @@ struct snakeBlock{
 void gotoxy(int x, int y)
 {
   COORD coord={x,y};
+  SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 5);
   SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
 }
+
+
+
 void drawMap(vector <snakeBlock>snake)
 {
     MapH=0;
     system("cls");
+    system("Color 0e");
     for (int i=0;Map[i][0];i++)
     {
         MapW=0;
         for (int j = 0 ;Map[i][j];j++)
         {
             MapW++;
-            if (Map[i][j]!=' ')
+            if( Map[i][j] == '@' )
+         {
+            gotoxy(j,i);
+            SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 10);
+            cout << Map[i][j];
+        }
+        else if (Map[i][j]!=' ')
             {
                 gotoxy(j,i);
+                SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 150);
                 cout<<Map[i][j];
             }
         }
         MapH++;
-    }system("Color 0d");
+    }
     for (int i =0 ;i<snake.size();i++)
     {
         gotoxy(snake[i].x,snake[i].y);
@@ -125,7 +137,7 @@ bool snakeMove(vector<snakeBlock>&snake,short dire[2])
 
 int main()
 {
-    system("Color 0d");
+    system("Color 0c");
     bool GameIsRunning=true;
     int GameSpeed=80;
     short dire[2]={0,1};
