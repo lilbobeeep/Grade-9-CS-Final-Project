@@ -32,6 +32,7 @@ int main()
 {
    system("Color 0d");
     bool gameIsRunning = true;
+    gameSpeed = difficulty* 40
     string davis = "Davis";
     string oscar = "Oscar";
     char pressStart;
