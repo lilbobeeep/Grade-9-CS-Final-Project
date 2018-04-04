@@ -3,21 +3,28 @@
 #include <vector>
 using namespace std;
 int MapW,MapH;
-char Map[100][100]={
-"########################################################",
-"#                                                      #",
-"#                                                      #",
-"#                                                      #",
-"#                                                      #",
-"#                                                      #",
-"#                                                      #",
-"#                                                      #",
-"#                                                      #",
-"#                                                      #",
-"#                                         @            #",
-"#                                                      #",
-"#                                                      #",
-"########################################################"};
+
+char Map[100][100]=   {" ________________________________________________________________ ",
+                       "|                                                                |",
+                       "|                                                                |",
+                       "|                                                                |",
+                       "|                                                                |",
+                       "|                                                                |",
+                       "|                                                                |",
+                       "|                                                                |",
+                       "|                                                                |",
+                       "|                                                                |",
+                       "|                                       @                        |",
+                       "|                                                                |",
+                       "|                                                                |",
+                       "|                                                                |",
+                       "|                                                                |",
+                       "|                                                                |",
+                       "|                                                                |",
+                       "|                                                                |",
+                       "|                                                                |",
+                       "|                                                                |",
+                       "|________________________________________________________________|"};
 struct snakeBlock{
     int x,y;
 };
@@ -44,7 +51,7 @@ void drawMap(vector <snakeBlock>snake)
             }
         }
         MapH++;
-    }
+    }system("Color 0d");
     for (int i =0 ;i<snake.size();i++)
     {
         gotoxy(snake[i].x,snake[i].y);
@@ -54,7 +61,7 @@ void drawMap(vector <snakeBlock>snake)
 
 bool checkLose(int x, int y,vector <snakeBlock>&snake)
 {
-    if (Map[y][x]=='#')
+    if (Map[y][x]=='|' || Map[y][x] == '_')
         return true;
     if (snake.size()>3)
     {
@@ -118,6 +125,7 @@ bool snakeMove(vector<snakeBlock>&snake,short dire[2])
 
 int main()
 {
+    system("Color 0d");
     bool GameIsRunning=true;
     int GameSpeed=80;
     short dire[2]={0,1};
@@ -133,6 +141,7 @@ int main()
                 dire[1]=-1;
                 dire[0]=0;
             }
+
         }
         else if (GetAsyncKeyState(VK_DOWN))
         {
