@@ -2,31 +2,8 @@
 #include <windows.h>
 #include <string>
 using namespace std;
-
-void titleScreen(char);
-int chooseDif(int&)
-int main()
-char setDisplay()
-{
-    string davis = "Davis";
-    string oscar = "Oscar";
-    char pressStart;
-    int difficutly
-    char border[][];
-    titleScreen(pressStart);
-    difficulty = chooseDif(difficulty);
-    char border = setDisplay();
-    
-
-
-
-    return 0;
-}
-
-
-char setDisplay();
-{
-    char display[][] = {"________________________________________________________________"
+   
+   char display[][] = {"________________________________________________________________"
                        "|                                                                |"
                        "|                                                                |"
                        "|                                                                |"
@@ -47,8 +24,27 @@ char setDisplay();
                        "|                                                                |"
                        "|                                                                |"
                        "|________________________________________________________________|"};
-                     return display[][];
-                     }
+                       
+void titleScreen(char);
+int chooseDif(int&)
+int main()
+char setDisplay()
+{
+    string davis = "Davis";
+    string oscar = "Oscar";
+    char pressStart;
+    int difficulty
+    titleScreen(pressStart);
+    difficulty = chooseDif(difficulty);
+    
+    
+
+
+
+    return 0;
+}
+
+
                        
                     
 int chooseDif(int &difficulty)
