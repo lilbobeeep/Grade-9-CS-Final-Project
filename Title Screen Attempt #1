@@ -44,6 +44,7 @@ int main()
     short int move[2] = {0,-1}
     titleScreen(pressStart);
     difficulty = chooseDif(difficulty);
+    intitializeSnake();
                
                 while (GameIsRunning)
     {
