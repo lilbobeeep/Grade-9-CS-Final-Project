@@ -2,27 +2,27 @@
 #include <windows.h>
 #include <string>
 using namespace std;
-   
-   char display[][] = {"________________________________________________________________"
+   System("Color 0d")
+   char map[100][100] = {"________________________________________________________________",
+                       "|                                                                |",
+                       "|                                                                |",
+                       "|                                                                |",
+                       "|                                                                |",
+                       "|                                                                |",
+                       "|                                                                |",
+                       "|                                                                |",
+                       "|                                                                |",
                        "|                                                                |"
-                       "|                                                                |"
-                       "|                                                                |"
-                       "|                                                                |"
-                       "|                                                                |" 
-                       "|                                                                |"
-                       "|                                                                |"
-                       "|                                                                |"
-                       "|                                                                |"
-                       "|                                                                |"
-                       "|                                                                |"
-                       "|                                                                |"
-                       "|                                                                |"
-                       "|                                                                |"
-                       "|                                                                |"
-                       "|                                                                |"
-                       "|                                                                |"
-                       "|                                                                |"
-                       "|                                                                |"
+                       "|                                                                |",
+                       "|                                                                |",
+                       "|                                                                |",
+                       "|                                                                |",
+                       "|                                                                |",
+                       "|                                                                |",
+                       "|                                                                |",
+                       "|                                                                |",
+                       "|                                                                |",
+                       "|                                                                |",
                        "|________________________________________________________________|"};
                        
 void titleScreen(char);
@@ -30,6 +30,8 @@ int chooseDif(int&)
 int main()
 char setDisplay()
 {
+system("Color 0d");
+    bool gameIsRunning = true;
     string davis = "Davis";
     string oscar = "Oscar";
     char pressStart;
@@ -43,6 +45,7 @@ char setDisplay()
 
     return 0;
 }
+
 
 
                        
