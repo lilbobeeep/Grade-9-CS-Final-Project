@@ -1,6 +1,8 @@
 #include <iostream>
 #include <windows.h>
 #include <vector>
+#include <cstdlib>
+#include <ctime>
 using namespace std;
 int MapW,MapH;
 
@@ -83,6 +85,8 @@ bool checkLose(int x, int y,vector <snakeBlock>&snake)
     }
     if (Map[y][x]=='@')
     {
+       unsigned seed = time(0);
+       srand(seed);
         Map[y][x]=' ';
         snakeBlock newSnake;
         newSnake.x=snake[snake.size()-1].x;
@@ -117,7 +121,7 @@ bool snakeMove(vector<snakeBlock>&snake,short dire[2])
     snake[0].x+=dire[0];
     snake[0].y+=dire[1];
     gotoxy(snake[0].x,snake[0].y);
-    cout<<char(219);
+    cout<<char(4);
     if (snake.size()>1)
     {
         for (int i = 1;i<snake.size();i++)
