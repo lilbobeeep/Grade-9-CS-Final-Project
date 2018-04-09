@@ -46,7 +46,7 @@ int main()
     difficulty = chooseDif(difficulty);
     intitializeSnake();
                
-                while (GameIsRunning)
+                while (gameIsRunning)
     {
         if (GetAsyncKeyState(VK_UP))
         {
