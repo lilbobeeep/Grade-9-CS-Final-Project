@@ -1,0 +1,22 @@
+#include <iostream>
+#include <fstream>
+#include <string>
+using namespace std;
+
+int main()
+{
+    ofstream outputFile;
+    ifstream inputFile;
+    string name;
+    inputFile.open("program.txt");
+    outputFile.open("program.txt");
+    cout << "writing data into file.\n";
+    //Write four names to the file.
+    outputFile << "bach\n";
+    //close the file
+    outputFile.close();
+    cout << "done.\n";
+    inputFile >> name;
+    cout << name << endl;
+    return 0;
+}
