@@ -1,8 +1,9 @@
 #include <iostream>
-#include <fstream>
+#include <windows.h>
 #include <string>
+#include <fstream>
 using namespace std;
-
+char option;
 int main()
 {
     ofstream outputFile;
@@ -18,5 +19,37 @@ int main()
     cout << "done.\n";
     inputFile >> name;
     cout << name << endl;
-    return 0;
+int saveFile();
+
+}
+void fileSavingActions(char urmom)
+{
+
+}
+int saveFile(int fileSaveOp)
+{
+
+      cout <<  "                                                                      \n"
+           <<  "                            Do you want to                            \n"
+           <<  "                            save the score?                           \n"
+           <<  "                                                                      \n"
+           <<  "                                Type Y for yes                        \n"
+           <<  "                                Type N for no                         \n"
+           <<  "                                                                      \n"
+           <<  "                                                                      \n"
+           <<  "                                                                      \n"
+           <<  "                                                                      \n"
+           <<  "                                ";cin.get(option);
+           while(option!= 'Y'&& option!= 'N'&& option!='y' &&option!='n')
+           {
+                cout << "\nThat is not a valid option. Please enter a valid option." << endl;
+                cin >> option;
+
+           }
+
+           if(option == 'Y' || option == 'y')
+           fileSaveOp = 1;
+           if(option == 'N' || option == 'n')
+           fileSaveOp = 2;
+           return fileSaveOp;
 }
