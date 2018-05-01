@@ -53,13 +53,13 @@ void drawMap(vector <snakeBlock>snake)  // Draw the map, snake, and apple
             MapW++;
             if( Map[i][j] == '@' )
          {
-            gotoxy(j,i);
+            gotoxy(&j,&i);
             SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 10);   //Apple color
             cout << Map[i][j];
         }
         else if (Map[i][j]!=' ')
             {
-                gotoxy(j,i);
+                gotoxy(&j,&i);
                 SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 150);    //Border color
                 cout<<Map[i][j];
             }
@@ -68,12 +68,12 @@ void drawMap(vector <snakeBlock>snake)  // Draw the map, snake, and apple
     }
     for (int i =0 ;i<snake.size();i++)    //display snake
     {
-        gotoxy(snake[i].x,snake[i].y);
+        gotoxy(&snake[i].x,&snake[i].y);
         cout<<char (219);                 //Block that makes up the snake
     }
 }
 
-bool checkLose(int x, int y,vector <snakeBlock>&snake)
+bool checkLose(int x, int y,vector <snakeBlock>&snake, int dif)
 {
     if (Map[y][x]=='|' || Map[y][x] == '_')     //if the snake is touching the border then return lose
         return true;
@@ -89,7 +89,7 @@ bool checkLose(int x, int y,vector <snakeBlock>&snake)
         srand(seed);
         Map[y][x]=' ';
         snakeBlock newSnake;
-        for(int num = 0; num <= 10; num++ )     //When the snake comes incontact with the apple then it will grow.
+        for(int num = 0; num <= 1*dif; num++ )     //When the snake comes incontact with the apple then it will grow.
         {
             newSnake.x=snake[snake.size()-1].x;
             newSnake.y=snake[snake.size()-1].y;
@@ -99,7 +99,7 @@ bool checkLose(int x, int y,vector <snakeBlock>&snake)
         do{
             rx=rand()%MapW;
             ry=rand()%MapH;
-        }while (checkLose(rx, ry,snake));
+        }while (checkLose(rx, ry,snake, dif));
         Map[ry][rx]='@';
         drawMap(snake);
     }
@@ -115,18 +115,18 @@ void snakeInit(int x,int y ,vector<snakeBlock> &snake)
 }
 
 //moves the snake
-bool snakeMove(vector<snakeBlock>&snake,short dire[2])
+bool snakeMove(vector<snakeBlock>&snake,short dire[2],int dif)
 {
     int oldx,oldy,x,y; //variables to hold where the snake is on the plane
-    gotoxy(snake[snake.size()-1].x,snake[snake.size()-1].y);  //Sets the cursor to where the snake was
+    gotoxy(&snake[snake.size()-1].x,&snake[snake.size()-1].y);  //Sets the cursor to where the snake was
     cout<<" ";  //displays a blank space
     oldx=snake[0].x;  //finds the back of the snake
     oldy=snake[0].y;
     snake[0].x+=dire[0];  // horizontal location is changed based on the x value in dire
     snake[0].y+=dire[1];  // vertical location is changed based on the y value in dire
-    gotoxy(snake[0].x,snake[0].y);  //Sets the cursor to where the snake will be
-    cout<<char(219);                //Displays the block 
-    if (snake.size()>1)             
+    gotoxy(&snake[0].x,&snake[0].y);  //Sets the cursor to where the snake will be
+    cout<<char(219);                //Displays the block
+    if (snake.size()>1)
     {
         for (int i = 1;i<snake.size();i++)// resets the values in each part of the snake vector to be correct with where the snake has moved to
         {
@@ -138,19 +138,20 @@ bool snakeMove(vector<snakeBlock>&snake,short dire[2])
             oldy=y;
         }
     }
-    if (checkLose(snake[0].x,snake[0].y,snake))
+    if (checkLose(snake[0].x,snake[0].y,snake,dif))
         return true;
     return false;
 }
 //function that finds the difficulty
 int chooseDif(int &difficulty)
 {
-     char diff; 
-      cout <<  "                                                                      \n"                                                                      
+    system("cls");
+     char diff;
+      cout <<  "                                                                      \n"
            <<  "                            Which difficulty?                         \n"
            <<  "                                                                      \n"
            <<  "                                                                      \n"
-           <<  "                                A: Easy                               \n"                     
+           <<  "                                A: Easy                               \n"
            <<  "                                                                      \n"
            <<  "                                B: Medium                             \n"
            <<  "                                                                      \n"
@@ -161,9 +162,9 @@ int chooseDif(int &difficulty)
            {
                 cout << "\nThat is not a valid difficulty. Please try again." << endl;
                 cin >> diff;
-                
+
            }
-           
+
            if(diff == 'A' || diff == 'a')
            difficulty = 1;
            if(diff == 'B' || diff == 'b')
@@ -172,7 +173,7 @@ int chooseDif(int &difficulty)
            difficulty = 3;
            return difficulty;
 }
-                                   
+
            void titleScreen(char pressStart)  //Begining visual for player
 {
       cout <<  " ___________________________________________________________________\n"
@@ -200,7 +201,7 @@ int chooseDif(int &difficulty)
            cin.get(pressStart);
 
       cout << "Yeah you did It!" << endl;
-      
+
 }
 
 int main()
@@ -208,15 +209,15 @@ int main()
     system("Color 0c");                 //Set color
     bool GameIsRunning=true;            //Set variable that tells when game is over
     char pressStart;                    //Variable that pauses the code
-    titleScreen(pressStart)             //Show title
-    int dif;                            //variable to hold difficulty 
+    titleScreen(pressStart);             //Show title
+    int dif;                            //variable to hold difficulty
     chooseDif(dif);                     //function to find difficulty
     int GameSpeed=120/dif;              //Set gamespeed based on difficulty
     short dire[2]={0,1};                //Array to hold vertical and horizontal movement
     vector<snakeBlock> snake;           //Vector that holds data to represent
     snakeInit(1,1,snake);               //Create a snake
     drawMap(snake);                     //create the border, snake, and apple in the correct locations
-    while (GameIsRunning)               
+    while (GameIsRunning)
     {
         if (GetAsyncKeyState(VK_UP))    //Movement up code
         {
@@ -251,7 +252,7 @@ int main()
                 dire[0]=1;
             }
         }
-        if(snakeMove(snake,dire))             //When the snake is dead stop the game
+        if(snakeMove(snake,dire,dif))             //When the snake is dead stop the game
         {
           system("cls");
           cout<<"Game Over"<<endl;
