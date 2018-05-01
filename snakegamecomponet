@@ -31,7 +31,7 @@ struct snakeBlock{
     int x,y;
 };
 
-void gotoxy(int *xptr, int *yptr)
+void gotoxy(int *xptr, int *yptr) //Set snake location and snake color
 {
   COORD coord={*xptr,*yptr};
   SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 5);
@@ -40,7 +40,7 @@ void gotoxy(int *xptr, int *yptr)
 
 
 
-void drawMap(vector <snakeBlock>snake)
+void drawMap(vector <snakeBlock>snake)  // Draw the map, snake, and apple
 {
     MapH=0;
     system("cls");
@@ -54,46 +54,46 @@ void drawMap(vector <snakeBlock>snake)
             if( Map[i][j] == '@' )
          {
             gotoxy(j,i);
-            SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 10);
+            SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 10);   //Apple color
             cout << Map[i][j];
         }
         else if (Map[i][j]!=' ')
             {
                 gotoxy(j,i);
-                SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 150);
+                SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 150);    //Border color
                 cout<<Map[i][j];
             }
         }
         MapH++;
     }
-    for (int i =0 ;i<snake.size();i++)
+    for (int i =0 ;i<snake.size();i++)    //display snake
     {
         gotoxy(snake[i].x,snake[i].y);
-        cout<<char (219);
+        cout<<char (219);                 //Block that makes up the snake
     }
 }
 
 bool checkLose(int x, int y,vector <snakeBlock>&snake)
 {
-    if (Map[y][x]=='|' || Map[y][x] == '_')
+    if (Map[y][x]=='|' || Map[y][x] == '_')     //if the snake is touching the border then return lose
         return true;
-    if (snake.size()>3)
+    if (snake.size()>3)                         //Code to see if the snake is eating itself
     {
         for (int i = 3;i<snake.size();i++)
             if (snake[i].x==x&&snake[i].y==y)
                 return true;
     }
-    if (Map[y][x]=='@')
+    if (Map[y][x]=='@')                   //Code to randomly locate the apple after it is eaten
     {
         unsigned seed = time(0);
         srand(seed);
         Map[y][x]=' ';
         snakeBlock newSnake;
-        for(int num = 0; num <= 10; num++ )
+        for(int num = 0; num <= 10; num++ )     //When the snake comes incontact with the apple then it will grow.
         {
             newSnake.x=snake[snake.size()-1].x;
             newSnake.y=snake[snake.size()-1].y;
-            snake.push_back(newSnake);
+            snake.push_back(newSnake);      //The snake grows by having the amount of spaces it takes up on the board  be the amount of places that are in the newSnake vector.
         }
         int rx,ry;
         do{
